@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>opera</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/list.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		
+
+		<script type="text/javascript">
+			mui.init();
+			 
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				
+				res_data =(new Function("","return "+self.name))();
+
+                     	for(var i=0;i<res_data.data.length;i++){
+                     		var ul=document.getElementById("listul");
+                       		var li=document.createElement('li');
+                       		li.setAttribute("id", "li"+i);
+                       		li.setAttribute("class","mui-table-view-cell");
+                       		document.getElementById("li"+i).innerText = res_data.data[i].key;
+                       		ul.appendChild(li);
+                       		var div=document.createElement('div');
+                       		div.setAttribute("id", "newDiv");
+                       		ul.appendChild(div);
+							document.getElementById("li"+i).addEventListener('tap', function(){
+								var btnArray = ['DoP', 'Native'];
+    							var message = '<h5>请进行选择</h5>';
+    							mui.confirm(message, 'Hello Opera', btnArray, function(e) {
+    								mui.get('http://192.168.43.14:8080/config/list/squeezelite',{dsd:dsd},
+    								function(data){
+    									if(data.success == true&&ajax.status == 200){
+    										 if (e.index == 1){
+    										 	dsd="DoPNative"
+    										 }
+    										 else{
+    										 	dsd="DoP"
+    										 }
+    									}
+    								},'json');
+        
+    							},'div');
+							})
+                    }
+                });
+
+		</script>
+		<ul class="mui-table-view" id="listul"></ul>
+		<header class="mui-bar mui-bar-nav">
+	      
+	      <h1 class="mui-title">opera</h1>
+	    </header>
+	</body>
+
+</html>

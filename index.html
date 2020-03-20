@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+	<script src="js/iconfont.js"></script>
+	<!--<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/jquery.alerts.js" type="text/javascript"></script>-->
+	<script src="js/id.js"></script>
+	<script src="js/new_file.js"></script>
+	
+	<script type="text/javascript" charset="utf-8">
+		mui.init();
+	</script>
+
+</head>
+<body>
+	<!-- 主界面不动、菜单移动 -->
+	<!-- 侧滑导航根容器 -->
+	<div class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+	  <!-- 菜单容器 -->
+	  <aside class="mui-off-canvas-left" id="offCanvasSide" >
+	    <div class="mui-scroll-wrapper" >
+	      <div class="mui-scroll" >
+	        <!-- 菜单具体展示内容 -->
+	        <div id="img">
+            	<img src="images/logo.jfif">
+        	</div>
+	        <ul class="mui-table-view" id="ull">
+    			<li class="mui-table-view-cell" id="list1"> <span class="mui-icon iconfont icon-fangzi">版本选择</li>
+    			<li class="mui-table-view-cell " id="list2"><span class="mui-icon iconfont icon-lianjie1">连接设备</li>
+    			<li class="mui-table-view-cell" id="list3"><span class="mui-icon iconfont icon-ic_attach_file_px">配置解码器</li>
+    			<li class="mui-table-view-cell" id="list4"><span class="mui-icon iconfont icon-sey-wife-a">配置无线网络</li>
+    			<li class="mui-table-view-cell" id="list5"><span class="mui-icon iconfont icon-music">播放音乐</li>
+    			<li class="mui-table-view-cell" id="list6"><span class="mui-icon iconfont icon-zhongqi">重启</li>
+    			<li class="mui-table-view-cell" id="list7"><span class="mui-icon iconfont icon-guanji">关机</li>
+    			<li class="mui-table-view-cell" id="list8"><span class="mui-icon iconfont icon-yunpanlogo-_huabanfuben">更新</li>
+    			<li class="mui-table-view-cell" id="list9">
+    				<a class="mui-navigate-right"><span class="mui-icon iconfont icon-lianjie2">管理硬盘</a>
+    				<ul id="sec">
+    					<li id="sec1"><span class="mui-icon iconfont icon-yunpanlogo-_huabanfuben1">挂载硬盘列表</li>
+    					<li id="sec2"><span class="mui-icon iconfont icon-fuwu">挂载硬盘列表</li>
+    					<li id="sec3"><span class="mui-icon iconfont icon-fuwu">挂载硬盘列表</li>
+    				</ul>
+    				<!--<div id="yingpan1">挂载硬盘列表</div>
+    				<input id="yingpan2"value="挂载网络硬盘" />
+    				<button id="yingpan3">挂载移动硬盘</button>-->
+    			</li>
+    			<li class="mui-table-view-cell" id="list10">
+    				<a class="mui-navigate-right"><span class="mui-icon iconfont icon-guanli">管理服务</a>
+    				<ul id="seco">
+    					<li id="seco1"><span class="mui-icon iconfont icon-fuwu">欧博音乐网桥</li>
+    					<li id="seco2"><span class="mui-icon iconfont icon-fuwu">Roonbridge</li>
+    					<li id="seco3"><span class="mui-icon iconfont icon-fuwu">NAA</li>
+    				</ul>
+    			</li>
+			</ul>
+	      </div>
+	    </div>
+	  </aside>
+	  <!-- 主页面容器 -->
+	  <div class="mui-inner-wrap">
+	    <!-- 主页面标题 -->
+	    <header class="mui-bar mui-bar-nav">
+	      <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" href="#offCanvasSide"></a>
+	      <h1 class="mui-title">opera</h1>
+	    </header>
+
+	    <div class="mui-content mui-scroll-wrapper">
+	      <div class="mui-scroll">
+	        <!-- 主界面具体展示内容 -->
+	        <div id="center">
+                 <img src="images/logo.jfif">
+            </div>
+            
+        
+        <div id="bottom">
+                <input type="button" style="width:110px;height:40px;margin-bottom: 20%;display: block;border-radius: 8px;border: 0;outline: none;" value="极致版">
+                <input type="button" style="width:110px;height:40px; border-radius: 8px;border:0;outline: none;" value="普通版">
+            
+        </div>
+	      </div>
+	    </div>  
+	    <div class="mui-off-canvas-backdrop"></div>
+	  </div>
+	</div>
+</body>
+</html>
