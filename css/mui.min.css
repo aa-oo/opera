@@ -4,6 +4,21 @@
     margin-top: 40%;
     text-align: center;
 }
+/*#cehualan{
+	z-index: 10000;
+/*	position: absolute;*/
+/*position: fixed;*/
+	
+}*/
+.mui-off-canvas-wrap{
+	z-index: 10000;
+}
+#offCanvasSide{
+	
+	position: fixed;
+	visibility: visible;
+}
+
 #bottom{
     position: absolute;
     margin-bottom: -100%;

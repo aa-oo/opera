@@ -41,9 +41,9 @@ function getIPs() {
             console.log(ipAddr);
             var i = 0;
             var t=0;
-            function getip() {
+            
+            time = setInterval(function getip() {
                 if (i <= 225) {
-                
                     function loadXMLDoc() {
                         var xmlhttp;
                         ipAdd = ipAddr + "." + i;
@@ -57,9 +57,12 @@ function getIPs() {
                         xmlhttp.onreadystatechange = function () {
                             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                             	t++;
+                            	console.log(t);
                                 localStorage.setItem("ip"+t, xmlhttp.responseURL);
-                                alert(localStorage.getItem("ip"+t).substring(7,20));
+ //                            alert(localStorage.getItem("ip"+t).substring(7,20));
+
 								
+
                                 console.log(xmlhttp.responseURL);
 //                              window.clearInterval(time);
                             }
@@ -74,9 +77,6 @@ function getIPs() {
                     clearInterval(time);
                 }
                 localStorage.setItem("t", t);
-            }
-            time = setInterval(() => {
-                getip()
             }, 200);
             
 
@@ -100,29 +100,22 @@ function getIPs() {
         }
         var offCanvasSide=document.getElementById('offCanvasSide');
 		offCanvasSide.style.visibility='hidden';
+
          mui.init({
-				subpages:[{
-   					url:'try.html',
-					id:'try.html',
-    				styles:{
-      						top:'45px',//mui标题栏默认高度为45px；
-      						bottom:'0px'//默认为0px，可不定义；
-    				}
-    				}]
-		});
+									subpages:[{
+   										url:'try.html',
+										id:'try.html',
+    									styles:{
+      										top:'45px',//mui标题栏默认高度为45px；
+      										bottom:'0px'//默认为0px，可不定义；
+    									}
+									}]
+								});
     })();
     else {
         console.log("请使用主流浏览器：chrome,firefox,opera,safari");
     }
      
 }
-//function mounted() {
-//  let _this = this;
-//  _this.getIPs();//获取内网ip
-//}
 
-//      function load() {  
-//     $("<div class=\"datagrid-mask\"></div>").css({ display: "block", width: "100%", height: $(window).height() }).appendTo("body");  
-//     $("<div class=\"datagrid-mask-msg\"></div>").html("正在加载，请稍候。。。").appendTo("body").css({ display: "block", left: ($(document.body).outerWidth(true) - 190) / 2, top: ($(window).height() - 45) / 2 });  
-//}
 

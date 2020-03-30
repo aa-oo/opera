@@ -130,16 +130,30 @@
 		"pages": {
 			"index.html": {
 				"resources": [
-					"list.html"
+					"list.html",
+					"try.html",
+					"js/new_file.js",
+					"js/iconfont.js",
+					"images/logo.jfif",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"js/id.js"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"try.html": {
+				"resources": [],
+				"refer": [
+					"index.html"
+				],
 				"priority": 0
 			}
 		},
 		"idle": {
 			"resources": [
 				"icon_fvy04yfeal/lianjie_3.png",
-				"js/iconfont.js",
 				"images/splash.png",
 				"images/folder3.png",
 				"icon_fvy04yfeal/guanli1-copy.png",
@@ -148,12 +162,9 @@
 				"images/folder1.png",
 				"icon_fvy04yfeal/yunpanlogo-_huabanfuben_1.png",
 				"icon_fvy04yfeal/lianjie.png",
-				"js/new_file.js",
 				"icon_fvy04yfeal/lianjie_1.png",
 				"images/folder4.png",
 				"images/folder2.png",
-				"js/mui.min.js",
-				"css/iconfont.css",
 				"js/mui.js",
 				"icon_fvy04yfeal/fuwu.png",
 				"images/folder5.png",
@@ -161,7 +172,6 @@
 				"images/musicbackground.jfif",
 				"icon_fvy04yfeal/sey-wife-a.png",
 				"images/cover.png",
-				"images/logo.jfif",
 				"images/play_needle.png",
 				"icon_fvy04yfeal/ic_attach_file_px.png",
 				"fonts/mui.ttf",
@@ -171,13 +181,11 @@
 				"icon_fvy04yfeal/guanli.png",
 				"icon_fvy04yfeal/yunpanlogo-_huabanfuben.png",
 				"icon_fvy04yfeal/lianjie_2.png",
-				"css/mui.min.css",
 				"icon_fvy04yfeal/yinyue_active.png",
 				"icon_fvy04yfeal/fangzi.png",
 				"images/bg1.png",
 				"icon_fvy04yfeal/zhongqi.png",
 				"icon_fvy04yfeal/guanji.png",
-				"js/id.js",
 				"icon_fvy04yfeal/yunpanlogo--.png",
 				"icon_fvy04yfeal/huixingzhen.png"
 			]
