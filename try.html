@@ -1,90 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="utf-8">
 		<title></title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="css/mui.min.css" rel="stylesheet" />
-		<link href="css/try.css" rel="stylesheet" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/mui.min.css" />
 	</head>
-
 	<body>
+		<script src="js/mui.js"></script>
 		<script src="js/mui.min.js"></script>
-		<script src="js/id.js"></script>
-		<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
-		<script type="text/javascript">
+		<script>
 			mui.init();
-			mui.plusReady(    
-        function() {  
-      	var offCanvasSide=window.parent.document.getElementById('offCanvasSide')
-      	var t=localStorage.getItem('t')
-      	console.log(t);
-      	var ul=document.getElementById("listul");
-      	for(var i=0;i<t;i++){
-      		console.log(t);
-      		var lii=document.createElement('li');
-      		lii.setAttribute("id", "li"+i);
-            lii.setAttribute("class","mui-table-view-cell");
-            ul.appendChild(lii);
-            console.log( localStorage.getItem("ip"+t).substring(7,20));
-            console.log("li"+i);
-            console.log(listul);
-            document.getElementById("li"+i).innerHTML = localStorage.getItem("ip"+t).substring(7,20);
-     		var div=document.createElement('div');
-                       		div.setAttribute("id", "newDiv");
-                       		ul.appendChild(div);
-							document.getElementById("li"+i).addEventListener('tap', function(){
-								var btnArray = ['确定', '取消'];
-    							var message = '<h5>请进行选择</h5>';
-    							mui.confirm(message, 'Hello Opera', btnArray, function(e) {
-    							var ip=localStorage.getItem('ip'+i);
-    								var ipt;
-    								var back;
-    								console.log(ip.substring(7,20));    								
-    										 if (e.index == 1){
-    										 	back=0;
-    										 	console.log(back);
-       										 }
-    										 else{
-    										 	ipt=ip.substring(7,20);
-    										 	 localStorage.setItem("ipt",ipt);
-    										 	back=1;
-    									}
-    										 console.log(back);
-    										 if(back==1){
-    										 	var cPage = plus.webview.currentWebview();
-    										 	var bPage = cPage.opener();
-    										 	cPage.close();
-    										 }
-    							},'div');
-            				});
-        }
-           
-      	
-                       		
-//                     		
-//    	 function disLoad() {  
-//   $(".datagrid-mask").remove();  
-//   $(".datagrid-mask-msg").remove();  
-// }
-//    	 disLoad();
-   
-//			var offCanvasSide=document.getElementById('offCanvasSide');
-//				offCanvasSide.style.visibility='visible';
-if( Object.prototype.toString.call(this.mui('.mui-progressbar').progressbar()) === '[Object Object]' ){
-	mui(".listl").progressbar().show();
-}
-
-
-				
-			});
+			mui.plusReady(function(){
+				document.getElementById('li').addEventListener("tap",alert("hu"));
+			})
 		</script>
-		
-		<ul class="mui-table-view mui-progressbar-infinite" id="listul">
-		
+		<ul style="line-heght:50px">
+			<li id="li" style="line-heght:50px">ggg</li>
+			<li>ggg</li>
+			<li>gg</li>
+			<li>g</li>
 		</ul>
-	
 	</body>
 
 </html>
