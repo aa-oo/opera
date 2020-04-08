@@ -1,7 +1,7 @@
 #center{
 
     /* display: block; */
-    margin-top: 45%;
+    margin-top: 40%;
     text-align: center;
 }
 /*#cehualan{
@@ -23,7 +23,7 @@
     position: absolute;
     margin-bottom: -100%;
     /* display: block; */
-    bottom: 60%;
+    bottom: 10%;
     left:50%;
     transform:translate(-50%, -50%);   
     -ms-transform:translate(-50%, -50%);    
