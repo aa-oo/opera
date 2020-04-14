@@ -71,7 +71,7 @@ function checkIP(ip) {
 							//                              window.clearInterval(time);
 						}
 					}
-					xmlhttp.open("GET", "http://" + ipAdd + ":8888/update/current", true);
+					xmlhttp.open("GET", "http://" + ipAdd + ":8888/api/og/detail", true);
 					xmlhttp.timeout = 200;
 					xmlhttp.ontimeout = function() {
 						return;

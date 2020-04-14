@@ -39,7 +39,7 @@
 							document.getElementById("li"+i).addEventListener('tap', function(){
 								var btnArray = ['确定', '取消'];
     							var message = '<h5>请进行选择</h5>';
-    							mui.confirm(message, 'Hello Opera', btnArray, function(e) {
+    							mui.confirm(message, '是否确认连接该IP', btnArray, function(e) {
     							
     								var ipt;
     								var back;
@@ -51,14 +51,30 @@
        										 }
     										 else{
     										 	ipt=ip;
-    										 	 localStorage.setItem("ipt",ipt);
+    										 	localStorage.setItem("ipt",ipt);
+												localStorage.setItem("lianjie",1);
     										 	back=1;
     									}
     										 console.log(back);
+									
     										 if(back==1){
-    										 	var cPage = plus.webview.currentWebview();
-    										 	var bPage = cPage.opener();
-    										 	cPage.close();
+												 mui.alert("连接成功",function(){
+													 var cPage = plus.webview.currentWebview();
+													 var bPage = cPage.opener();
+													 var aPage=bPage.opener();
+													 cPage.close();
+													 bPage.close();
+													 })
+    										 	
+												// mui.openWindow({
+												//     url:'index.html',
+												//     id:'index',
+												 
+												//       styles:{
+												//       	top:'45px',//mui标题栏默认高度为45px；
+												//       	bottom:'0px'//默认为0px，可不定义；
+												//       }
+												//   })
     										 }
     							},'div');
             				});

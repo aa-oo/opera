@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>opera</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/wife.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+
+
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				var ip = localStorage.getItem('ipt')
+				console.log(ip);
+				mui.ajax('http://' + ip + ':8888/config/list/wifi', {
+					data: {
+
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'get', //HTTP请求类型
+					timeout: 4000, //超时时间设置为10秒；
+					// headers:{'Content-Type':'application/json'},	              
+					success: function(data) {
+						//服务器返回响应，根据响应结果，分析是否登录成功；
+
+						if (data.success == true && ajax.status == 200) {
+
+
+							for (var i = 0; i < data.length; i++) {
+								var ul = document.getElementById("listul");
+								var li = document.createElement('li');
+								li.setAttribute("id", "li" + i);
+								li.setAttribute("class", "mui-table-view-cell");
+								ul.appendChild(li);
+								var rdata=data[i].key;
+								document.getElementById("li" + i).innerText = rdata;
+								document.getElementById("li" + i).addEventListener('tap', function(e) {
+									e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+									var btnArray = ['取消', '确定'];
+									mui.prompt('请输入密码：', '', 'opera', btnArray, function(e) {
+										if (e.index == 1) {
+											mui.ajax('http://' + ip + ':8888/config/config/wifi', {
+												data:{rdata;},
+												dataType: 'json', //服务器返回json格式数据
+												type: 'get', //HTTP请求类型
+												timeout: 4000, //超时时间设置为10秒；
+												// headers:{'Content-Type':'application/json'},	              
+												success: function(data) {
+													//服务器返回响应，根据响应结果，分析是否登录成功；
+												
+													if (data.success == true && ajax.status == 200) {
+														var cPage = plus.webview.currentWebview();
+														var bPage = self.opener();									
+														cPage.close();
+													}}
+												
+											})
+										} else {
+										}
+									})
+								});
+							}
+						}
+					},
+				})
+			});
+		</script>
+		<ul class="mui-table-view" id="listul"></ul>
+		<!-- 		<header class="mui-bar mui-bar-nav">
+	      
+	      <h1 class="mui-title">opera</h1>
+	    </header> -->
+	</body>
+
+</html>

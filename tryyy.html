@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			// mui.init()
+			mui.plusReady(function () {
+				for (var i = 0; i < 3; i++) {
+					var ul = document.getElementById("listul");
+					var li = document.createElement('li');
+					li.setAttribute("id", "li" + i);
+					li.setAttribute("class", "mui-table-view-cell");
+					ul.appendChild(li);
+					document.getElementById("li" + i).innerText = i;
+					document.getElementById("li" + i).addEventListener('tap', function(e) {
+						e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+						var btnArray = ['取消', '确定'];
+						var message = '请输入密码：';
+						mui.prompt(message, '', 'opera', btnArray, function(e) {
+							if (e.index == 1) {
+								var text = document.querySelector('.mui-popup-input textarea').value.trim();
+													console.log(text);
+								console.log(e.value);
+							} else {
+								// info.innerText = '你点了取消按钮';
+							}
+						})
+					},'div');
+					var lihh = document.querySelector('.mui-popup-input');
+								lihh.innerHTML="<textarea rows='30'></textarea>";
+								document.querySelector('.mui-popup-input textarea').value=text;
+			    // mui.confirm('<input type="password" id="test" />', 'Hello MUI', null, function(event) {
+			    //     var index = event.index;
+			    //     if(index === 1) {
+			    //         var pwd = document.getElementById('test').value;
+			    //         // 验证失败返回false
+			    //         return false;
+			    //     }
+			    // });
+				}
+			})
+		</script>
+		<ul class="mui-table-view" id="listul"></ul>
+		<div></div>
+	</body>
+
+</html>

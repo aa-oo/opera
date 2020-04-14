@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding:0 ;
+				width: 100%;
+			}
+			#jindutiao{
+				width: 100%;
+			}
+			#progreaa{
+				width: 90%;
+				height: 20px;
+				background-color: gainsboro;
+				bottom: 20px;
+			/* 	margin-top: 40%; */
+			
+				margin-left: 5%;
+			}
+			#bra{
+				width: 1%;
+				height:20px;
+				/* bottom: 20px; */
+				margin-top: 170%;
+				background: grey;
+			}
+			#text-grogress{
+				text-align: center;
+				margin-top: 5%;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="js/mui.min.js"></script>
+		<!--	<script src="js/ipt.js"></script>-->
+			<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+		<script>
+			mui.init();
+			mui.plusReady(
+				function() {
+					// getUserIP(function(ip) {
+					// 	if (ip.length == 13) {
+					// 		// console.log(ip)
+					// 		checkIP();
+					// 		page();
+					// 		async function getip() {
+					// 			console.log(ip)
+					// 			await checkIP(ip);
+					// 			page();
+					// 		}
+					// 		getip();
+					
+					
+					
+					// 	}
+					// })
+					getUserIP(function(ip){
+						if (ip.length == 13) {
+							console.log(ip);
+							async function getip() {
+								console.log(ip)
+								await checkIP(ip);
+								console.log(ip);
+								// page();
+							}
+							getip();
+							
+					}})
+					// var offCanvasSide = document.getElementById('offCanvasSide');
+					// offCanvasSide.style.visibility = 'hidden';
+					
+					// mui.init({
+					// 	subpages: [{
+					// 		url: 'try.html',
+					// 		id: 'try.html',
+					// 		styles: {
+					// 			top: '45px', //mui标题栏默认高度为45px；
+					// 			bottom: '0px' //默认为0px，可不定义；
+					// 		}
+					// 	}]
+					// });
+				})
+		</script>
+		<script src="js/jindutiao.js"></script>
+		
+			<header class="mui-bar mui-bar-nav" id="barTop">
+			  <a class="mui-action-back mui-icon mui-pull-left mui-icon-left-nav "  ></a>
+			  <h1 class="mui-title">opera</h1>
+			</header>
+	
+		<div id="jindutiao">
+		<div id="progreaa">
+			<div id="bra"></div>
+			
+		</div>
+		<div><h1 id="text-grogress">正在扫描请等待...</h1></div>
+		</div>
+	</body>
+</html>

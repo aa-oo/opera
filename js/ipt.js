@@ -42,15 +42,16 @@ ice.candidate.candidate.match(ipRegex).forEach(iterateIP);
 var i = 0;
     var t=0;
 //  localStorage.setItem("t",t);
-function checkIP(ip) {
+ function checkIP(ip) {
             var ipAddr = ip.substring(0, ip.lastIndexOf('.'));
             console.log(ipAddr);
             var i = 0;
             var t=0;
-            
+         
             time = setInterval(function getip() {
                 if (i <= 225) {
                     function loadXMLDoc() {
+						
                         var xmlhttp;
                         ipAdd = ipAddr + "." + i;
                         i++;
@@ -84,6 +85,7 @@ function checkIP(ip) {
                 }
                 localStorage.setItem("t", t);
             }, 200);
+			
             }
 //getUserIP(function(ip){
 // if(ip.length==13){
