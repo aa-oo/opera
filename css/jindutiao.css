@@ -1,0 +1,28 @@
+*{
+				margin: 0;
+				padding:0 ;
+				width: 100%;
+			}
+			#jindutiao{
+				width: 100%;
+			}
+			#progreaa{
+				width: 85%;
+				height: 11px;
+				background-color: gainsboro;
+				bottom: 20px;
+			/* 	margin-top: 40%; */
+			
+				margin-left: 7%;
+			}
+			#bra{
+				width: 1%;
+				height:11px;
+				/* bottom: 20px; */
+				margin-top: 170%;
+				background: grey;
+			}
+			#text-grogress{
+				text-align: center;
+				margin-top: 5%;
+			}

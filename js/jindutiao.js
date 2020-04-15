@@ -235,7 +235,7 @@ function checkIP(ip) {
 									//                              window.clearInterval(time);
 								}
 							}
-							xmlhttp.open("GET", "http://" + ipAdd + ":8888/update/current", true);
+							xmlhttp.open("GET", "http://" + ipAdd + ":8888/api/og/detail", true);
 								xmlhttp.send(ipAdd);
 							}
 							loadXMLDoc();
@@ -251,22 +251,22 @@ function checkIP(ip) {
 
 			function page() {
 
-				console.log("jjj");
-				var jindutiao = document.getElementById('jindutiao');
-				jindutiao.style.display = 'none';
-				var barTop = document.getElementById('barTop');
-				barTop.style.display = 'none';
-				mui.openWindow({
-
-					// mui.init({
-					// subpages:[{
+				
+				// var jindutiao = document.getElementById('jindutiao');
+				// jindutiao.style.display = 'none';
+				// var barTop = document.getElementById('barTop');
+				// barTop.style.display = 'none';
+				// mui.openWindow({
+					console.log("hhh")
+					mui.init({
+					subpages:[{
 					url: 'try.html',
 					id: 'try.html',
 					styles: {
 						top: '45px', //mui标题栏默认高度为45px；
 						bottom: '0px' //默认为0px，可不定义；
 					}
-					// }]
+					}]
 				});
 
 

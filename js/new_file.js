@@ -2,73 +2,75 @@
 
 mui.plusReady(
 	function() {
-		
+
 		mui('.mui-scroll-wrapper').scroll({
 			scrollY: true, //是否竖向滚动
 			scrollX: false, //是否横向滚动
 			deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
 		});
-		localStorage.setItem("lianjie",0);
+		localStorage.setItem("lianjie", 0);
 		document.getElementById("list2").addEventListener('tap', function() {
-			
-			var lianjie=localStorage.getItem('lianjie');
+
+			var lianjie = localStorage.getItem('lianjie');
 			console.log(lianjie);
 			console.log(localStorage.getItem('ipt'));
-			if(lianjie==0){
-			var btnArray = ['取消', '确定'];
-			var message = '<h5>您确定链接设备吗？</h5>';
-			mui.confirm(message, 'opera', btnArray, function(e) {
-				if (e.index == 1) {
-					// getUserIP(function(ip){
-					// 	if (ip.length == 13) {
-					// 		console.log(ip);
-					// 		checkIP(ip);
-					// }})
-					var offCanvasSide = document.getElementById('offCanvasSide');
-					offCanvasSide.style.visibility = 'hidden';
+			if (lianjie == 0) {
+				var btnArray = ['取消', '确定'];
+				var message = '<h5>您确定链接设备吗？</h5>';
+				mui.confirm(message, 'opera', btnArray, function(e) {
+					if (e.index == 1) {
+						// getUserIP(function(ip){
+						// 	if (ip.length == 13) {
+						// 		console.log(ip);
+						// 		checkIP(ip);
+						// }})
+						mui.openWindow({
+							url: "jindutiaot.html",
+							id: "jindutiaot.html",
+						})
+						// var offCanvasSide = document.getElementById('offCanvasSide');
+						// offCanvasSide.style.visibility = 'hidden';
 
-					mui.init({
-						subpages: [{
-							url: 'jindutiao.html',
-							id: 'jindutiao.html',
-							styles: {
-								top: '45px', //mui标题栏默认高度为45px；
-								bottom: '0px' //默认为0px，可不定义；
-							}
-						}]
-					});
-					// getUserIP(function(ip) {
-					// 	if (ip.length == 13) {
-					// 		console.log(ip)
-					// 		async function getip() {
-					// 			console.log(ip)
-					// 			await checkIP(ip);
-					// 			page();
-					// 		}
-					// 		getip();
+						// mui.init({
+						// 	subpages: [{
+						// 		url: 'jindutiao.html',
+						// 		id: 'jindutiao.html',
+						// 		styles: {
+						// 			top: '45px', //mui标题栏默认高度为45px；
+						// 			bottom: '0px' //默认为0px，可不定义；
+						// 		}
+						// 	}]
+						// });
+						// getUserIP(function(ip) {
+						// 	if (ip.length == 13) {
+						// 		console.log(ip)
+						// 		async function getip() {
+						// 			console.log(ip)
+						// 			await checkIP(ip);
+						// 			page();
+						// 		}
+						// 		getip();
 
 
 
-					// 	}
-					// })
-				} else {}
-			}, 'div')
-			}
-			else{
-				var t=localStorage.getItem('t')
+						// 	}
+						// })
+					} else {}
+				}, 'div')
+			} else {
+				var t = localStorage.getItem('t')
 				var btnArray = ['取消', '确定'];
 				var message = '<h5>是否断开连接？</h5>';
 				mui.confirm(message, 'opera', btnArray, function(e) {
 					if (e.index == 1) {
-						for(var i=1;i<=t;i++){
-							localStorage.removeItem('ip'+i);
+						for (var i = 1; i <= t; i++) {
+							localStorage.removeItem('ip' + i);
 						}
 						localStorage.removeItem('ipt');
 						localStorage.removeItem('t');
-						localStorage.setItem("lianjie",0);
-					}
-					else{}
-				},'div')
+						localStorage.setItem("lianjie", 0);
+					} else {}
+				}, 'div')
 			}
 		})
 		//			document.getElementById("list3").addEventListener('tap',function(){
@@ -138,13 +140,13 @@ mui.plusReady(
 		//					}
 		//				});
 		//       });  
-	
-	document.getElementById("list3").addEventListener('tap', function() {
-		mui.openWindow({
-		    url:"list.html",
-		    id:"list.html",
-	})
-	})
+
+		document.getElementById("list3").addEventListener('tap', function() {
+			mui.openWindow({
+				url: "list.html",
+				id: "list.html",
+			})
+		})
 		// document.getElementById("list3").addEventListener('tap', function() {
 		// 	var ip = localStorage.getItem('ipt');
 		// 	// var dsd = localStorage.getItem('dsd');
@@ -310,11 +312,72 @@ mui.plusReady(
 			}, 'div')
 		});
 		document.getElementById("list6").addEventListener('tap', function() {
-			alert("是否确定");
+			var btnArray = ['取消', '确定'];
+			var message = '<h5>是否重启？</h5>';
+			mui.confirm(message, 'opera', btnArray, function(e) {
+				if (e.index == 1) {
+					var ip = localStorage.getItem('ipt')
+					mui.ajax('http://' + ip + ':8888/config/reboot', {
+						data: {},
+						dataType: 'json', //服务器返回json格式数据
+						type: 'get', //HTTP请求类型             
+						success: function(data) {
+							mui.toast("请等待重启")
+						},
+						error: function(xhr, type, errorThrown) {},
+					})
+				} else {}
+			}, 'div')
 		});
 		document.getElementById("list7").addEventListener('tap', function() {
-			alert("是否确定");
+			var btnArray = ['取消', '确定'];
+			var message = '<h5>是否关机？</h5>';
+			mui.confirm(message, 'opera', btnArray, function(e) {
+				if (e.index == 1) {
+					var ip = localStorage.getItem('ipt')
+					mui.ajax('http://' + ip + ':8888/config/halt', {
+						data: {},
+						dataType: 'json', //服务器返回json格式数据
+						type: 'get', //HTTP请求类型             
+						success: function(data) {
+							mui.toast("请等待重启")
+						},
+						error: function(xhr, type, errorThrown) {},
+					})
+				} else {}
+			}, 'div')
 		});
+		document.getElementById("sec1").addEventListener('tap', function() {
+					mui.openWindow({
+						url: "yingpanliebiao.html",
+						id: "yingpanliebiao.html",
+					})
+		});
+		document.getElementById("sec2").addEventListener('tap', function() {
+			var btnArray = ['取消', '确定'];
+			var message = '<h5>是否重启？</h5>';
+			mui.confirm(message, 'opera', btnArray, function(e) {
+				if (e.index == 1) {
+					var ip = localStorage.getItem('ipt')
+					mui.ajax('http://' + ip + ':8888/config/mount/local', {
+						data: {},
+						dataType: 'json', //服务器返回json格式数据
+						type: 'get', //HTTP请求类型             
+						success: function(data) {
+							mui.toast("请等待重启")
+						},
+						error: function(xhr, type, errorThrown) {},
+					})
+				} else {}
+			}, 'div')
+		});
+		document.getElementById("sec3").addEventListener('tap', function() {
+			mui.openWindow({
+				url: "wangluoyingpan.html",
+				id: "wangluoyingpan.html",
+			})
+		})
+		
 		document.getElementById('sec').classList.add('mui-hidden');
 		var i = 0;
 		document.getElementById("list9").addEventListener('tap', function() {

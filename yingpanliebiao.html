@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<!doctype html>
+	<html>
+
+		<head>
+			<meta charset="UTF-8">
+			<title>opera</title>
+			<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+			<link href="css/mui.min.css" rel="stylesheet" />
+		</head>
+
+		<body>
+			<script src="js/mui.min.js"></script>
+
+
+			<script type="text/javascript">
+				mui.init();
+
+				mui.plusReady(function() {
+							var ip = localStorage.getItem('ipt');
+							console.log(ip);
+							mui.ajax('http://' + ip + ':8888/config/mount/list', {
+									data: {},
+									dataType: 'json', //服务器返回json格式数据
+									type: 'get', //HTTP请求类型             
+									success: function(data) {
+										//服务器返回响应，根据响应结果，分析是否登录成功；
+
+										if (data.success == true && data.status == 200) {
+											var item = data.data;
+											for (var i = 0; i < item.length; i++) {
+												var ul = document.getElementById("listul");
+												var li = document.createElement('li');
+												li.setAttribute("id", "li" + i);
+												li.setAttribute("class", "mui-table-view-cell");
+												ul.appendChild(li);
+												document.getElementById("li" + i).innerText = item[i]
+											}
+										}
+									},
+									error: function(xhr, type, errorThrown) {
+										alert("ehh");
+										console.log(JSON.stringify(arguments));
+									}
+									});
+							})
+			</script>
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-pull-left mui-icon-left-nav "></a>
+				<h1 class="mui-title">opera</h1>
+			</header>
+			<ul class="mui-table-view" id="listul"></ul>
+		</body>
+
+	</html>

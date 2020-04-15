@@ -1,0 +1,14 @@
+#main{
+	margin-top: 25%;
+}
+#top{
+	text-align: center;
+	font-size: 25px;
+	color: rgb(95,114,128);
+}
+#bottom{
+	margin-top: 5%;
+}
+.mui-input-row{
+	margin-top: 5%;
+}

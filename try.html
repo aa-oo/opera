@@ -17,7 +17,7 @@
 			mui.init();
 			mui.plusReady(    
         function() {  
-      	var offCanvasSide=window.parent.document.getElementById('offCanvasSide')
+      	// var offCanvasSide=window.parent.document.getElementById('offCanvasSide')
       	var t=localStorage.getItem('t')
       	console.log(t);
       	var ul=document.getElementById("listul");
@@ -38,8 +38,8 @@
 							console.log(ip);
 							document.getElementById("li"+i).addEventListener('tap', function(){
 								var btnArray = ['确定', '取消'];
-    							var message = '<h5>请进行选择</h5>';
-    							mui.confirm(message, '是否确认连接该IP', btnArray, function(e) {
+    							var message = '<h5>是否确认连接该IP</h5>';
+    							mui.confirm(message, 'opera', btnArray, function(e) {
     							
     								var ipt;
     								var back;
@@ -54,27 +54,19 @@
     										 	localStorage.setItem("ipt",ipt);
 												localStorage.setItem("lianjie",1);
     										 	back=1;
+												
     									}
     										 console.log(back);
 									
     										 if(back==1){
-												 mui.alert("连接成功",function(){
-													 var cPage = plus.webview.currentWebview();
-													 var bPage = cPage.opener();
-													 var aPage=bPage.opener();
-													 cPage.close();
-													 bPage.close();
+												 // mui.toast("连接成功",function(){
+													//  var old_back = mui.back;
+													//  old_back();
+												 // });					 
+												 mui.alert("连接成功","opera",function(){
+													 var old_back = mui.back;
+													 old_back();
 													 })
-    										 	
-												// mui.openWindow({
-												//     url:'index.html',
-												//     id:'index',
-												 
-												//       styles:{
-												//       	top:'45px',//mui标题栏默认高度为45px；
-												//       	bottom:'0px'//默认为0px，可不定义；
-												//       }
-												//   })
     										 }
     							},'div');
             				});
@@ -89,8 +81,6 @@
 // }
 //    	 disLoad();
    
-//			var offCanvasSide=document.getElementById('offCanvasSide');
-//				offCanvasSide.style.visibility='visible';
 if( Object.prototype.toString.call(this.mui('.mui-progressbar').progressbar()) === '[Object Object]' ){
 	mui(".listl").progressbar().show();
 }
@@ -99,7 +89,10 @@ if( Object.prototype.toString.call(this.mui('.mui-progressbar').progressbar()) =
 				
 			});
 		</script>
-		
+	<!-- 	<header class="mui-bar mui-bar-nav">
+		  <a class="mui-action-back mui-icon mui-pull-left mui-icon-left-nav "  ></a>
+		  <h1 class="mui-title">opera</h1>
+		</header> -->
 		<ul class="mui-table-view mui-progressbar-infinite" id="listul">
 		
 		</ul>
